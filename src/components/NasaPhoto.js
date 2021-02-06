@@ -38,7 +38,4 @@ const [credit, setCredit] = useState ([]);
 
         </div>
     )
-
-
-
-  }  
+}  
