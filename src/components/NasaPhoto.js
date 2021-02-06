@@ -7,6 +7,7 @@ const [title, setTitle] = useState ([]);
 const [date, setDate] = useState([]); 
 const [photo, setPhoto] = useState([]);
 const [explanation, setExplanation] = useState ([]);
+const [credit, setCredit] = useState ([]);
 
       useEffect (() =>{
           axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
@@ -18,7 +19,7 @@ const [explanation, setExplanation] = useState ([]);
                 setDate(response.data.date)
                 setPhoto(response.data.url)
                 setExplanation(response.data.explanation)
-             
+                setCredit(response.data.copyright)
           })
           .catch(error => console.log(error))
       },[])
@@ -31,6 +32,7 @@ const [explanation, setExplanation] = useState ([]);
           <h2> {title} </h2>
           <h3> {date}</h3>
           <img src= {photo} alt= "Daily Pic"/>
+          <h4>Photo By: {credit}</h4>
           <h3>Picture Info:</h3>
           <p> {explanation} </p>
 
